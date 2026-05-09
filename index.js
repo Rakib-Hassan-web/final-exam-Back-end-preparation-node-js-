@@ -1,22 +1,21 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose');
+const DB_Config = require('./dbCofig');
+require('dotenv').config();
+
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+    res.send('Hello World!')
 })
+// ---------------database----------
 
 
+DB_Config()
 
 
-mongoose.connect('mongodb+srv://final_Exam_practice:E-commerceBackend@cluster0.7ooynjm.mongodb.net/final_Exam_practice?appName=Cluster0')
-  .then(() => console.log('Connected!'));
-
-
-
-
-
+// ---------server------------
 
 app.listen(8000, () => {
   console.log(`server is running with port 8000`)
