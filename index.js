@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/test')
+mongoose.connect('mongodb+srv://final_Exam_practice:E-commerceBackend@cluster0.7ooynjm.mongodb.net/final_Exam_practice?appName=Cluster0')
   .then(() => console.log('Connected!'));
 
 
