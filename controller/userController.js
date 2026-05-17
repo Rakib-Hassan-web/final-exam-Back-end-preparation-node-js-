@@ -1,4 +1,5 @@
 const userSchema = require("../models/userSchema");
+const { GenarateAccessTKN, GenarateRef_TKN } = require("../services/helpers");
 const { sendError, sendSuccess } = require("../services/responsehandler");
 const {isValidEmail, isValidPassword} =require("../services/validation")
 
@@ -63,8 +64,14 @@ try {
         if(!existing_user) return sendError(res,"User not Exist" ,400)
         
 
-         if(existing_user.password !== password)  return  sendError(res, "Wrong Password", 400);   
+         if(existing_user.password !== password)  return  sendError(res, "Wrong Password", 400);  
+         
+         const ACCTKN =GenarateAccessTKN(existing_user)
+         const REFTKN =GenarateRef_TKN(existing_user)
 
+         
+res.cookie("XS-TKN" ,ACCTKN)
+res.cookie("RF-TKN" ,REFTKN)
                                           
             
  
