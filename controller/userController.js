@@ -63,7 +63,7 @@ try {
         if(!existing_user) return sendError(res,"User not Exist" ,400)
         
 
-            if(existing_user.password !== password)  return  sendError(res, "Wrong Password", 400);   
+         if(existing_user.password !== password)  return  sendError(res, "Wrong Password", 400);   
 
                                           
             
